@@ -36,6 +36,20 @@ public class GameShould {
         assertThat(game.state(), is(States.DEUCE));
     }
 
+    @Test public void
+    return_1_advantage_when_deuce_happend_and_a_player_scores() {
+        addXPointsTo(PLAYER_A, 3);
+        addXPointsTo(PLAYER_B, 3);
+
+        assertThat(game.getScoreFromPlayer(PLAYER_A), is(40));
+        assertThat(game.getScoreFromPlayer(PLAYER_B), is(40));
+        assertThat(game.state(), is(States.DEUCE));
+
+        addXPointsTo(PLAYER_A, 1);
+        assertThat(game.state(), is(States.DEUCE));
+        assertThat(game.getAdvantageFromPlayer(PLAYER_A), is(1));
+    }
+
     private void addXPointsTo(String player, int times) {
         for (int i = 0; i < times; i++) {
             game.addPointsToPlayer(player);

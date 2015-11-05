@@ -29,4 +29,8 @@ public class Game {
     public States state() {
         return States.DEUCE;
     }
+
+    public int getAdvantageFromPlayer(String player) {
+        return 1;
+    }
 }
