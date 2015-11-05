@@ -22,7 +22,7 @@ public class Game {
         return "playerA";
     }
 
-    public int getScoreForPlayer(String playerName) {
+    public int getScoreFromPlayer(String playerName) {
         return playerName.equals("playerA") ? score1.getPoints() : score2.getPoints();
     }
 

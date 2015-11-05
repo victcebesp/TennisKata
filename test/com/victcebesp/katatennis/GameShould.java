@@ -21,8 +21,8 @@ public class GameShould {
     return_player_one_as_the_winner_when_its_score_is_greater_than_forty_and_score_of_player_two_is_zero() {
         addXPointsTo(PLAYER_A, 4);
 
-        assertThat(game.getScoreForPlayer(PLAYER_A), is(55));
-        assertThat(game.getScoreForPlayer(PLAYER_B), is(0));
+        assertThat(game.getScoreFromPlayer(PLAYER_A), is(55));
+        assertThat(game.getScoreFromPlayer(PLAYER_B), is(0));
         assertThat(game.getSetWinner(), is(PLAYER_A));
     }
 
@@ -31,8 +31,8 @@ public class GameShould {
         addXPointsTo(PLAYER_A, 3);
         addXPointsTo(PLAYER_B, 3);
 
-        assertThat(game.getScoreForPlayer(PLAYER_A), is(40));
-        assertThat(game.getScoreForPlayer(PLAYER_B), is(40));
+        assertThat(game.getScoreFromPlayer(PLAYER_A), is(40));
+        assertThat(game.getScoreFromPlayer(PLAYER_B), is(40));
         assertThat(game.state(), is(States.DEUCE));
     }
 
