@@ -12,27 +12,12 @@ public class Score {
         this.matchPoints = 0;
     }
 
-
-    public void addPoint() {
+    public void addPoints() {
         score += score == 30 ? 10 : 15;
-    }
-
-    public void addMatchPoint() {
-        matchPoints += 1;
-    }
-    public void addAdvantage() {
-        advantage += 1;
     }
 
     public int getPoints() {
         return score;
     }
 
-    public int getMatchPoints() {
-        return matchPoints;
-    }
-
-    public int getAdvantage() {
-        return advantage;
-    }
 }

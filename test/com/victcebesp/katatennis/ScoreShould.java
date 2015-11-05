@@ -18,9 +18,6 @@ public class ScoreShould {
 
     /**
      * TODO: Possible tests
-     * 0 scores point => 15
-     * 15 scores point => 30
-     * 30 & scores point => 40
      * 40 scores point & the other has less than 40 => wins point
      * 40 & 40 => deuce
      * deuce & scores point => advantage
@@ -37,7 +34,7 @@ public class ScoreShould {
     public void return_15_after_adding_a_point() {
         Score score = new Score();
 
-        score.addPoint();
+        score.addPoints();
 
         assertEquals(15, score.getPoints());
     }
@@ -46,8 +43,8 @@ public class ScoreShould {
     public void return_30_after_adding_a_point_to_a_15_score() {
         Score score = new Score();
 
-        score.addPoint();
-        score.addPoint();
+        score.addPoints();
+        score.addPoints();
 
         assertEquals(30, score.getPoints());
     }
@@ -56,9 +53,9 @@ public class ScoreShould {
     public void return_40_after_adding_a_point_to_a_30_score() {
         Score score = new Score();
 
-        score.addPoint();
-        score.addPoint();
-        score.addPoint();
+        score.addPoints();
+        score.addPoints();
+        score.addPoints();
 
         assertEquals(40, score.getPoints());
     }
