@@ -19,15 +19,25 @@ public class GameShould {
 
     @Test public void
     return_player_one_as_the_winner_when_its_score_is_greater_than_forty_and_score_of_player_two_is_zero() {
-        addPointsTo(PLAYER_A);
+        addXPointsTo(PLAYER_A, 4);
 
         assertThat(game.getScoreForPlayer(PLAYER_A), is(55));
         assertThat(game.getScoreForPlayer(PLAYER_B), is(0));
         assertThat(game.getSetWinner(), is(PLAYER_A));
     }
 
-    private void addPointsTo(String player) {
-        for (int i = 0; i < 4; i++) {
+    @Test public void
+    return_deuce_when_both_scores_are_forty() {
+        addXPointsTo(PLAYER_A, 3);
+        addXPointsTo(PLAYER_B, 3);
+
+        assertThat(game.getScoreForPlayer(PLAYER_A), is(40));
+        assertThat(game.getScoreForPlayer(PLAYER_B), is(40));
+        assertThat(game.state(), is(States.DEUCE));
+    }
+
+    private void addXPointsTo(String player, int times) {
+        for (int i = 0; i < times; i++) {
             game.addPointsToPlayer(player);
         }
     }
