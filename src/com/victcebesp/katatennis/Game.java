@@ -1,5 +1,7 @@
 package com.victcebesp.katatennis;
 
+enum States{DEUCE}
+
 public class Game {
 
     private final Score score1;
@@ -11,7 +13,9 @@ public class Game {
     }
 
     public void addPointsToPlayer(String playerName) {
-        score1.addPoints();
+        if (playerName.equals("playerA")) score1.addPoints();
+        else score2.addPoints();
+
     }
 
     public String getSetWinner() {
@@ -22,4 +26,7 @@ public class Game {
         return playerName.equals("playerA") ? score1.getPoints() : score2.getPoints();
     }
 
+    public States state() {
+        return States.DEUCE;
+    }
 }
