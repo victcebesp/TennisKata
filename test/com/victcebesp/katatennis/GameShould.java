@@ -37,14 +37,6 @@ public class GameShould {
     }
 
     @Test public void
-    return_1_advantage_when_deuce_happend_and_a_player_scores() {
-        addXPointsTo(PLAYER_A, 3);
-        addXPointsTo(PLAYER_B, 4);
-
-        assertThat(game.getAdvantageFromPlayer(PLAYER_B), is(1));
-    }
-
-    @Test public void
     return_player_two_as_the_winner_when_it_has_two_advantages() {
         addXPointsTo(PLAYER_A, 3);
         addXPointsTo(PLAYER_B, 5);
