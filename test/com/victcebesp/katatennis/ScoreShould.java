@@ -19,8 +19,6 @@ public class ScoreShould {
     /**
      * TODO: Possible tests
      * 40 scores point & the other has less than 40 => wins point
-     * deuce & scores point => advantage
-     * advantage & scores point => wins point
      * advantage & loses point => back to deuce
      */
 
