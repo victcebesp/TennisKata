@@ -32,7 +32,7 @@ public class Game {
         return playerName.equals("playerA") ? score1.getPoints() : score2.getPoints();
     }
 
-    private States state() {
+    public States state() {
         if(score1.getPoints() != score2.getPoints()) return States.DIFFERENT;
         return score1.getPoints() == 40 ? States.DEUCE : States.SIMILAR;
     }
