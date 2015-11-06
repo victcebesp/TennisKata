@@ -23,8 +23,8 @@ public class Game {
 
 
     public String getSetWinner() {
-        if (score1.getAdvantage() == 2 || score1.getPoints() == score2.getPoints() + 30) return "playerA";
-        if (score2.getAdvantage() == 2 || score2.getPoints() == score1.getPoints() + 30) return "playerB";
+        if (score1.getAdvantage() - 2 == score2.getAdvantage() || score1.getPoints() == score2.getPoints() + 30) return "playerA";
+        if (score2.getAdvantage() - 2 == score1.getAdvantage() || score2.getPoints() == score1.getPoints() + 30) return "playerB";
         return "playerA";
     }
 
