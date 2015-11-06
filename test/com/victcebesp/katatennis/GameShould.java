@@ -46,7 +46,10 @@ public class GameShould {
 
     @Test public void
     return_player_two_as_the_winner_when_it_has_two_advantages() {
-        assertThat(game.getSetWinner(), is(PLAYER_B));
+        addXPointsTo(PLAYER_A, 3);
+        addXPointsTo(PLAYER_B, 5);
+
+        assertThat(game.getSetWinner(), is("playerB"));
     }
 
     private void addXPointsTo(String player, int times) {

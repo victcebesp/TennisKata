@@ -1,6 +1,6 @@
 package com.victcebesp.katatennis;
 
-enum States{DEUCE}
+enum States{DEUCE, SIMILAR, DIFFERENT}
 
 public class Game {
 
@@ -13,12 +13,18 @@ public class Game {
     }
 
     public void addPointsToPlayer(String playerName) {
+        CheckToAddAvantageTo(playerName);
+        CheckToAddMatchPointToPlayerA(playerName);
+        CheckToAddMatchPointToPlayerB(playerName);
         if (playerName.equals("playerA")) score1.addPoints();
         else score2.addPoints();
-
     }
 
+
+
     public String getSetWinner() {
+        if (score1.getAdvantage() == 2 || score1.getPoints() == score2.getPoints() + 30) return "playerA";
+        if (score2.getAdvantage() == 2 || score2.getPoints() == score1.getPoints() + 30) return "playerB";
         return "playerA";
     }
 
@@ -27,10 +33,21 @@ public class Game {
     }
 
     public States state() {
-        return States.DEUCE;
+        if(score1.getPoints() != score2.getPoints()) return States.DIFFERENT;
+        return score1.getPoints() == 40 ? States.DEUCE : States.SIMILAR;
     }
 
     public int getAdvantageFromPlayer(String player) {
         return 1;
+    }
+    private void CheckToAddAvantageTo(String playerName) {
+        if (state() == States.DEUCE && playerName.equals("playerA")) score1.addAdvantage();
+        else score2.addAdvantage();
+    }
+    private void CheckToAddMatchPointToPlayerA(String playerName) {
+        if (score1.getPoints() == 40 && score2.getPoints() < 40 && playerName.equals("playerA")) score1.addMatchPoints();
+    }
+    private void CheckToAddMatchPointToPlayerB(String playerName) {
+        if (score2.getPoints() == 40 && score1.getPoints() < 40 && playerName.equals("playerB")) score2.addMatchPoints();
     }
 }

@@ -20,4 +20,16 @@ public class Score {
         return score;
     }
 
+    public int getAdvantage() {
+        return advantage;
+    }
+
+
+    public void addAdvantage() {
+        advantage++;
+    }
+
+    public void addMatchPoints() {
+        matchPoints++;
+    }
 }
