@@ -14,8 +14,7 @@ public class Game {
 
     public void addPointsToPlayer(String playerName) {
         CheckToAddAvantageTo(playerName);
-        CheckToAddMatchPointToPlayerA(playerName);
-        CheckToAddMatchPointToPlayerB(playerName);
+        CheckToAddMatchPointToPlayer(playerName);
         if (playerName.equals("playerA")) score1.addPoints();
         else score2.addPoints();
     }
@@ -25,7 +24,7 @@ public class Game {
     public String getSetWinner() {
         if (score1.getAdvantage() - 2 == score2.getAdvantage() || score1.getPoints() == score2.getPoints() + 30) return "playerA";
         if (score2.getAdvantage() - 2 == score1.getAdvantage() || score2.getPoints() == score1.getPoints() + 30) return "playerB";
-        return "playerA";
+        return null;
     }
 
     public int getScoreFromPlayer(String playerName) {
@@ -39,12 +38,10 @@ public class Game {
 
     private void CheckToAddAvantageTo(String playerName) {
         if (state() == States.DEUCE && playerName.equals("playerA")) score1.addAdvantage();
-        else score2.addAdvantage();
+        if (state() == States.DEUCE && playerName.equals("playerB")) score2.addAdvantage();
     }
-    private void CheckToAddMatchPointToPlayerA(String playerName) {
-        if (score1.getPoints() == 40 && score2.getPoints() < 40 && playerName.equals("playerA")) score1.addMatchPoints();
-    }
-    private void CheckToAddMatchPointToPlayerB(String playerName) {
-        if (score2.getPoints() == 40 && score1.getPoints() < 40 && playerName.equals("playerB")) score2.addMatchPoints();
+    private void CheckToAddMatchPointToPlayer(String playerName) {
+        if (playerName.equals("playerA") && score1.getPoints() == 40 && score2.getPoints() < 40) score1.addMatchPoints();
+        if (playerName.equals("playerB") && score2.getPoints() == 40 && score1.getPoints() < 40) score2.addMatchPoints();
     }
 }
