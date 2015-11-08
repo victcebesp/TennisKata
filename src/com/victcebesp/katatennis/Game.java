@@ -41,7 +41,13 @@ public class Game {
         if (state() == States.DEUCE && playerName.equals("playerB")) score2.addAdvantage();
     }
     private void CheckToAddMatchPointToPlayer(String playerName) {
-        if (playerName.equals("playerA") && score1.getPoints() == 40 && score2.getPoints() < 40) score1.addMatchPoints();
-        if (playerName.equals("playerB") && score2.getPoints() == 40 && score1.getPoints() < 40) score2.addMatchPoints();
+        if (playerName.equals("playerA") && score1.getPoints() == 40 && score2.getPoints() < 40)
+            score1.addMatchPoints();
+            score1.setPoints(0);
+            score2.setPoints(0);
+        if (playerName.equals("playerB") && score2.getPoints() == 40 && score1.getPoints() < 40)
+            score2.addMatchPoints();
+            score1.setPoints(0);
+            score2.setPoints(0);
     }
 }
