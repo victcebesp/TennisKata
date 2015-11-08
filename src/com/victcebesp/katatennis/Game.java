@@ -13,8 +13,8 @@ public class Game {
     }
 
     public void addPointsToPlayer(String playerName) {
-        CheckToAddAvantageTo(playerName);
-        CheckToAddMatchPointToPlayer(playerName);
+        checkToAddAvantageTo(playerName);
+        checkToAddMatchPointToPlayer(playerName);
         if (playerName.equals("playerA")) score1.addPoints();
         else score2.addPoints();
     }
@@ -36,11 +36,11 @@ public class Game {
         return score1.getPoints() == 40 ? States.DEUCE : States.SIMILAR;
     }
 
-    private void CheckToAddAvantageTo(String playerName) {
+    private void checkToAddAvantageTo(String playerName) {
         if (state() == States.DEUCE && playerName.equals("playerA")) score1.addAdvantage();
         if (state() == States.DEUCE && playerName.equals("playerB")) score2.addAdvantage();
     }
-    private void CheckToAddMatchPointToPlayer(String playerName) {
+    private void checkToAddMatchPointToPlayer(String playerName) {
         if (playerName.equals("playerA") && score1.getPoints() == 40 && score2.getPoints() < 40)
             score1.addMatchPoints();
             score1.setPoints(0);
