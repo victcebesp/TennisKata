@@ -6,6 +6,7 @@ public class Score {
     private int score;
     private int matchPoints;
     private int advantage;
+    private int points;
 
     public Score() {
         this.score = 0;
@@ -31,5 +32,9 @@ public class Score {
 
     public void addMatchPoints() {
         matchPoints++;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
