@@ -25,16 +25,6 @@ public class GameShould {
     }
 
     @Test public void
-    return_deuce_when_both_scores_are_forty() {
-        addXPointsTo(PLAYER_A, 3);
-        addXPointsTo(PLAYER_B, 3);
-
-        assertThat(game.getScoreFromPlayer(PLAYER_A), is(40));
-        assertThat(game.getScoreFromPlayer(PLAYER_B), is(40));
-        assertThat(game.state(), is(States.DEUCE));
-    }
-
-    @Test public void
     return_player_two_as_the_winner_when_it_has_two_advantages_more_than_playerA() {
         addXPointsTo(PLAYER_A, 3);
         addXPointsTo(PLAYER_B, 5);
