@@ -18,10 +18,10 @@ public class GameShould {
     }
 
     @Test public void
-    return_player_one_as_the_winner_when_its_score_is_greater_than_forty_and_score_of_player_two_is_zero() {
-        addXPointsTo(PLAYER_A, 4);
+    return_true_when_there_is_a_set_winner() {
+        addXPointsTo(PLAYER_A, 3);
 
-        assertThat(game.checkIfThereIsASetWinner(), is(PLAYER_A));
+        assertThat(game.checkIfThereIsASetWinner(), is(true));
     }
 
     @Test public void
@@ -39,7 +39,7 @@ public class GameShould {
         addXPointsTo(PLAYER_A, 3);
         addXPointsTo(PLAYER_B, 5);
 
-        assertThat(game.checkIfThereIsASetWinner(), is("playerB"));
+        assertThat(game.decideWichPlayerWinTheSet(), is("playerB"));
     }
 
     private void addXPointsTo(String player, int times) {
