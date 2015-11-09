@@ -32,6 +32,13 @@ public class GameShould {
         assertThat(game.decideWhichPlayerWinTheSet(), is("playerB"));
     }
 
+    @Test public void
+    return_each_player_score() {
+        addXPointsTo(PLAYER_A, 2);
+        addXPointsTo(PLAYER_B, 1);
+
+        assertThat(game.carryTheGame(), is("Player A score: 30, Player B score: 15"));
+    }
     private void addXPointsTo(String player, int times) {
         for (int i = 0; i < times; i++) {
             game.addPointsToPlayer(player);
