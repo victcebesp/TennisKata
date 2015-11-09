@@ -29,7 +29,7 @@ public class GameShould {
         addXPointsTo(PLAYER_A, 3);
         addXPointsTo(PLAYER_B, 5);
 
-        assertThat(game.decideWichPlayerWinTheSet(), is("playerB"));
+        assertThat(game.decideWhichPlayerWinTheSet(), is("playerB"));
     }
 
     private void addXPointsTo(String player, int times) {
