@@ -33,7 +33,5 @@ public class Score {
         matchPoints = matchPoints + 1;
     }
 
-    public void setPoints(int points) {
-        this.score = points;
     }
 }
