@@ -39,6 +39,13 @@ public class GameShould {
 
         assertThat(game.carryTheGame(), is("Player A score: 30, Player B score: 15"));
     }
+    @Test public void
+    return_that_both_players_have_the_same_score() {
+        addXPointsTo(PLAYER_A, 2);
+        addXPointsTo(PLAYER_B, 2);
+
+        assertThat(game.carryTheGame(), is("30 All"));
+    }
     private void addXPointsTo(String player, int times) {
         for (int i = 0; i < times; i++) {
             game.addPointsToPlayer(player);
