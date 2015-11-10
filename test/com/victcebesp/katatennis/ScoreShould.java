@@ -22,10 +22,11 @@ public class ScoreShould {
      * 40 scores point & the other has less than 40 => wins point
      * advantage & loses point => back to deuce
      */
-//    @Before
-//    public void setUp() throws Exception {
-//        Score score = new Score();
-//    }
+    private Score score;
+    @Before
+    public void setUp() throws Exception {
+        score = new Score();
+    }
 
     @Test
     public void return_0_when_its_started() {
@@ -34,8 +35,6 @@ public class ScoreShould {
 
     @Test
     public void return_15_after_adding_a_point() {
-        Score score = new Score();
-
         score.addPoint();
 
         assertEquals(15, score.getPoints());
@@ -43,8 +42,6 @@ public class ScoreShould {
 
     @Test
     public void return_30_after_adding_a_point_to_a_15_score() {
-        Score score = new Score();
-
         score.addPoint();
         score.addPoint();
 
@@ -53,8 +50,6 @@ public class ScoreShould {
 
     @Test
     public void return_40_after_adding_a_point_to_a_30_score() {
-        Score score = new Score();
-
         score.addPoint();
         score.addPoint();
         score.addPoint();
@@ -64,8 +59,6 @@ public class ScoreShould {
 
     @Test public void
     return_one_advantage_after_adding_a_point_to_a_40_score(){
-        Score score = new Score();
-
         score.addPoint();
         score.addPoint();
         score.addPoint();
