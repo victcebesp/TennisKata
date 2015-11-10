@@ -13,8 +13,10 @@ public class Score {
     }
 
     public void addPoint() {
-        score += score == 30 ? 10 : 15;
+        if (this.getPoints() == 40) addAdvantage();
+        else score += score == 30 ? 10 : 15;
     }
+
     public void setPoints(int points) {
         this.score = points;
     }

@@ -1,5 +1,6 @@
 package com.victcebesp.katatennis;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -21,6 +22,10 @@ public class ScoreShould {
      * 40 scores point & the other has less than 40 => wins point
      * advantage & loses point => back to deuce
      */
+//    @Before
+//    public void setUp() throws Exception {
+//        Score score = new Score();
+//    }
 
     @Test
     public void return_0_when_its_started() {
@@ -55,6 +60,18 @@ public class ScoreShould {
         score.addPoint();
 
         assertEquals(40, score.getPoints());
+    }
+
+    @Test public void
+    return_one_advantage_after_adding_a_point_to_a_40_score(){
+        Score score = new Score();
+
+        score.addPoint();
+        score.addPoint();
+        score.addPoint();
+        score.addPoint();
+
+        assertEquals(1, score.getAdvantage());
     }
 
 }
