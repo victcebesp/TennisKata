@@ -1,8 +1,9 @@
 package com.victcebesp.katatennis;
 
 public class Player {
+
     private String playerName;
-    private Score score;
+    protected Score score;
 
     public Player(String playerName) {
         this.playerName = playerName;
