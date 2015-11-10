@@ -13,20 +13,19 @@ public class Game {
     }
 
     public String printGameStatus(){
+        if (playerBHasAnAdvantage()) return playerB.getPlayerName() + " has an advantage";
         if (playerAHasAnAdvantage()) return playerA.getPlayerName() + " has an advantage";
         if (state().equals(States.DEUCE)) return "Deuce";
         if (state().equals(States.SIMILAR)) return playerA.getPoints() + " All";
         return "Player A score: " + playerA.getPoints() + ", Player B score: " + playerB.getPoints();
     }
 
-    private boolean playerAHasAnAdvantage() {
-        return playerA.getAdvantage() == 1;
+    private boolean playerBHasAnAdvantage() {
+        return playerB.getAdvantage() == 1;
     }
 
-    public void addPointsToPlayer(Player playerName) {
-        checkToAddAdvantageTo(playerName.getPlayerName());
-        if (playerName.getPlayerName().equals("playerA")) playerA.addPoint();
-        else playerB.addPoint();
+    private boolean playerAHasAnAdvantage() {
+        return playerA.getAdvantage() == 1;
     }
 
     private States state() {
@@ -35,12 +34,4 @@ public class Game {
         return States.DIFFERENT;
     }
 
-    private void checkToAddAdvantageTo(String playerName) {
-        if (state() == States.DEUCE) addAdvantageTo(playerName);
-    }
-
-    private void addAdvantageTo(String playerName) {
-        if (playerName.equalsIgnoreCase("playerA")) playerA.addAdvantage();
-        else playerB.addAdvantage();
-    }
 }
