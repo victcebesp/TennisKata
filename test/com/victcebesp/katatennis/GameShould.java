@@ -14,7 +14,7 @@ public class GameShould {
 
     @Before
     public void setUp() throws Exception {
-        game = new Game(new Score(), new Score());
+        game = new Game(playerA, playerB);
     }
 
     @Test public void
