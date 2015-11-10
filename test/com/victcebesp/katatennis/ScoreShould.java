@@ -23,6 +23,7 @@ public class ScoreShould {
      * advantage & loses point => back to deuce
      */
     private Score score;
+
     @Before
     public void setUp() throws Exception {
         score = new Score();
@@ -35,36 +36,47 @@ public class ScoreShould {
 
     @Test
     public void return_15_after_adding_a_point() {
-        score.addPoint();
+        add(1).pointsToScore(score);
 
         assertEquals(15, score.getPoints());
     }
 
     @Test
     public void return_30_after_adding_a_point_to_a_15_score() {
-        score.addPoint();
-        score.addPoint();
+        add(2).pointsToScore(score);
 
         assertEquals(30, score.getPoints());
     }
 
     @Test
     public void return_40_after_adding_a_point_to_a_30_score() {
-        score.addPoint();
-        score.addPoint();
-        score.addPoint();
+        add(3).pointsToScore(score);
 
         assertEquals(40, score.getPoints());
     }
 
     @Test public void
     return_one_advantage_after_adding_a_point_to_a_40_score(){
-        score.addPoint();
-        score.addPoint();
-        score.addPoint();
-        score.addPoint();
+        add(4).pointsToScore(score);
 
         assertEquals(1, score.getAdvantage());
     }
 
+    private ScoreAdder add(int points) {
+        return new ScoreAdder(points);
+    }
+
+    private class ScoreAdder {
+        private final int pointsToAdd;
+
+        private ScoreAdder(int pointsToAdd) {
+            this.pointsToAdd = pointsToAdd;
+        }
+
+        public void pointsToScore(Score score) {
+            for (int i = 0; i < pointsToAdd; i++) {
+                score.addPoint();
+            }
+        }
+    }
 }
