@@ -31,7 +31,7 @@ public class ScoreShould {
     public void return_15_after_adding_a_point() {
         Score score = new Score();
 
-        score.addPoints();
+        score.addPoint();
 
         assertEquals(15, score.getPoints());
     }
@@ -40,8 +40,8 @@ public class ScoreShould {
     public void return_30_after_adding_a_point_to_a_15_score() {
         Score score = new Score();
 
-        score.addPoints();
-        score.addPoints();
+        score.addPoint();
+        score.addPoint();
 
         assertEquals(30, score.getPoints());
     }
@@ -50,9 +50,9 @@ public class ScoreShould {
     public void return_40_after_adding_a_point_to_a_30_score() {
         Score score = new Score();
 
-        score.addPoints();
-        score.addPoints();
-        score.addPoints();
+        score.addPoint();
+        score.addPoint();
+        score.addPoint();
 
         assertEquals(40, score.getPoints());
     }

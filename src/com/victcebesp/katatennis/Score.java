@@ -12,7 +12,7 @@ public class Score {
         this.matchPoints = 0;
     }
 
-    public void addPoints() {
+    public void addPoint() {
         score += score == 30 ? 10 : 15;
     }
     public void setPoints(int points) {
