@@ -66,17 +66,4 @@ public class ScoreShould {
         return new ScoreAdder(points);
     }
 
-    private class ScoreAdder {
-        private final int pointsToAdd;
-
-        private ScoreAdder(int pointsToAdd) {
-            this.pointsToAdd = pointsToAdd;
-        }
-
-        public void pointsToScore(Score score) {
-            for (int i = 0; i < pointsToAdd; i++) {
-                score.addPoint();
-            }
-        }
-    }
 }
