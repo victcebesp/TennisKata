@@ -17,10 +17,6 @@ public class Score {
         else score += score == 30 ? 10 : 15;
     }
 
-    public void setPoints(int points) {
-        this.score = points;
-    }
-
     public int getPoints() {
         return score;
     }
@@ -31,13 +27,5 @@ public class Score {
 
     public void addAdvantage() {
         advantage++;
-    }
-
-    public void addMatchPoints() {
-        matchPoints = matchPoints + 1;
-    }
-
-    public int getMatchPoint() {
-        return matchPoints;
     }
 }
