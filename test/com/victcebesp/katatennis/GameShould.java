@@ -49,7 +49,6 @@ public class GameShould {
         assertThat(game.printGameStatus(), is("playerA has an advantage"));
     }
 
-
     private void addXPointsTo(Player player, int times) {
         for (int i = 0; i < times; i++) {
             game.addPointsToPlayer(player);

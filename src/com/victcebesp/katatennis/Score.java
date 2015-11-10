@@ -1,6 +1,5 @@
 package com.victcebesp.katatennis;
 
-
 public class Score {
 
     private int score;

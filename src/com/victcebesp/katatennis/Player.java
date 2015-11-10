@@ -24,4 +24,8 @@ public class Player {
     public void addAdvantage() {
         score.addAdvantage();
     }
+
+    public int getAdvantage() {
+        return score.getAdvantage();
+    }
 }
