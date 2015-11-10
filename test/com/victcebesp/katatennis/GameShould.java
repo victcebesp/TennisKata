@@ -52,7 +52,7 @@ public class GameShould {
 
     private void addXPointsTo(Player player, int times) {
         for (int i = 0; i < times; i++) {
-            game.addPointsToPlayer(player.getPlayerName());
+            game.addPointsToPlayer(player);
         }
     }
 
