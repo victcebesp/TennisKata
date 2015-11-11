@@ -36,28 +36,28 @@ public class ScoreShould {
 
     @Test
     public void return_15_after_adding_a_point() {
-        add(1).pointsToScore(score);
+        add(1).pointsToAdd(score);
 
         assertEquals(15, score.getPoints());
     }
 
     @Test
     public void return_30_after_adding_a_point_to_a_15_score() {
-        add(2).pointsToScore(score);
+        add(2).pointsToAdd(score);
 
         assertEquals(30, score.getPoints());
     }
 
     @Test
     public void return_40_after_adding_a_point_to_a_30_score() {
-        add(3).pointsToScore(score);
+        add(3).pointsToAdd(score);
 
         assertEquals(40, score.getPoints());
     }
 
     @Test public void
     return_one_advantage_after_adding_a_point_to_a_40_score(){
-        add(4).pointsToScore(score);
+        add(4).pointsToAdd(score);
 
         assertEquals(1, score.getAdvantage());
     }

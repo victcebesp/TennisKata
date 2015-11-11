@@ -8,7 +8,7 @@ class ScoreAdder {
         this.pointsToAdd = pointsToAdd;
     }
 
-    public void pointsToScore(Score score) {
+    public void pointsToAdd(Score score) {
         for (int i = 0; i < pointsToAdd; i++) {
             score.addPoint();
         }
