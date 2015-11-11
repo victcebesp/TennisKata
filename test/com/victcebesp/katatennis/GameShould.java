@@ -8,8 +8,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GameShould {
 
-    PlayerSpy playerA = new PlayerSpy("playerA");
-    PlayerSpy playerB = new PlayerSpy("playerB");
+    Player playerA = new Player("playerA");
+    Player playerB = new Player("playerB");
     private Game game;
 
     @Before
@@ -61,16 +61,10 @@ public class GameShould {
         return new ScoreAdder(points);
     }
 
-    public class PlayerSpy extends Player {
 
-        public PlayerSpy(String playerName) {
-            super(playerName);
         }
 
-        public Score getScore() {
-            return score;
         }
     }
-
 }
 
