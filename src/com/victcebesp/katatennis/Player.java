@@ -22,11 +22,11 @@ public class Player {
         score.addPoint();
     }
 
-    public void addAdvantage() {
-        score.addAdvantage();
-    }
-
     public int getAdvantage() {
         return score.getAdvantage();
+    }
+
+    public int getSetPoints() {
+        return score.getSetPoints();
     }
 }

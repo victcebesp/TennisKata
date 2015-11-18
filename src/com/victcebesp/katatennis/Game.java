@@ -13,11 +13,16 @@ public class Game {
     }
 
     public String printGameStatus(){
+        if (playerAHasASetPoint()) return playerA.getPlayerName() + " has a setPoint";
         if (playerBHasAnAdvantage()) return playerB.getPlayerName() + " has an advantage";
         if (playerAHasAnAdvantage()) return playerA.getPlayerName() + " has an advantage";
         if (state().equals(States.DEUCE)) return "Deuce";
         if (state().equals(States.SIMILAR)) return playerA.getPoints() + " All";
         return "Player A score: " + playerA.getPoints() + ", Player B score: " + playerB.getPoints();
+    }
+
+    private boolean playerAHasASetPoint() {
+        return playerA.getSetPoints() == 1;
     }
 
     private boolean playerBHasAnAdvantage() {

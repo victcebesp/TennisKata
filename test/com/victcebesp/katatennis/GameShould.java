@@ -57,6 +57,15 @@ public class GameShould {
         assertThat(game.printGameStatus(), is("playerB has an advantage"));
     }
 
+    @Test public void
+    add_a_matchpoint_when_a_player_has_two_advantages() {
+        add(5).pointsToAdd(playerA);
+        add(3).pointsToAdd(playerB);
+
+        assertThat(game.printGameStatus(), is("playerA has a setPoint"));
+    }
+
+
     public ScoreAdder add(int points) {
         return new ScoreAdder(points);
     }
