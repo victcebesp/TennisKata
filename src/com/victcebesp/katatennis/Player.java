@@ -29,4 +29,8 @@ public class Player {
     public int getSetPoints() {
         return score.getSetPoints();
     }
+
+    public void reStartScore(){
+        score.restartScore();
+    }
 }

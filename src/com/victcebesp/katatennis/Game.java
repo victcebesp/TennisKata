@@ -13,7 +13,10 @@ public class Game {
     }
 
     public String printGameStatus(){
-        if (playerAHasASetPoint()) return playerA.getPlayerName() + " has a setPoint";
+        if (playerAHasASetPoint()) {
+            reStartBothScores();
+            return playerA.getPlayerName() + " scored a setPoint";
+        }
         if (playerBHasAnAdvantage()) return playerB.getPlayerName() + " has an advantage";
         if (playerAHasAnAdvantage()) return playerA.getPlayerName() + " has an advantage";
         if (state().equals(States.DEUCE)) return "Deuce";
@@ -23,6 +26,11 @@ public class Game {
 
     private boolean playerAHasASetPoint() {
         return playerA.getSetPoints() == 1;
+    }
+
+    private void reStartBothScores() {
+        playerA.reStartScore();
+        playerB.reStartScore();
     }
 
     private boolean playerBHasAnAdvantage() {

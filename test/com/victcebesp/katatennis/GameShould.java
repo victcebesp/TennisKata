@@ -63,6 +63,8 @@ public class GameShould {
         add(3).pointsToAdd(playerB);
 
         assertThat(game.printGameStatus(), is("playerA scored a setPoint"));
+        assertThat(playerA.getPoints(), is(0));
+        assertThat(playerB.getPoints(), is(0));
     }
 
 
