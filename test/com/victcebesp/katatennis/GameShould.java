@@ -58,11 +58,11 @@ public class GameShould {
     }
 
     @Test public void
-    add_a_matchpoint_when_a_player_has_two_advantages() {
+    add_a_setpoint_when_a_player_has_two_advantages() {
         add(5).pointsToAdd(playerA);
         add(3).pointsToAdd(playerB);
 
-        assertThat(game.printGameStatus(), is("playerA has a setPoint"));
+        assertThat(game.printGameStatus(), is("playerA scored a setPoint"));
     }
 
 
