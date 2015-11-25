@@ -33,4 +33,8 @@ public class Player {
     public void reStartScore(){
         score.restartScore();
     }
+
+    public void addSetPoint() {
+        score.addSetPoint();
+    }
 }

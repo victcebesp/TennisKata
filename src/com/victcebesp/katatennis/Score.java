@@ -12,8 +12,7 @@ public class Score {
 
 
     public void addPoint() {
-        if (score == 40) addAdvantage();
-        else score += score == 30 ? 10 : 15;
+        score += score == 30 ? 10 : 15;
     }
 
     public int getPoints() {
@@ -21,8 +20,7 @@ public class Score {
     }
 
     public void addAdvantage() {
-        if (advantage == 1) addSetPoint();
-        else advantage++;
+        advantage++;
     }
 
     public int getAdvantage() {
@@ -30,7 +28,7 @@ public class Score {
     }
 
 
-    private void addSetPoint() {
+    public void addSetPoint() {
         setPoint++;
     }
 
