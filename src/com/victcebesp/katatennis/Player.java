@@ -37,4 +37,8 @@ public class Player {
     public void addSetPoint() {
         score.addSetPoint();
     }
+
+    public void addAdvantage() {
+        score.addAdvantage();
+    }
 }

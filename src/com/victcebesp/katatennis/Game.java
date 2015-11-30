@@ -18,11 +18,22 @@ public class Game {
             reStartBothScores();
             return playerA.getPlayerName() + " scored a setPoint";
         }
-        if (playerBHasAnAdvantage()) return playerB.getPlayerName() + " has an advantage";
-        if (playerAHasAnAdvantage()) return playerA.getPlayerName() + " has an advantage";
+        if (aPlayerHasAnAdvantage()) return playerWithHigherScore().getPlayerName() + " has an advantage";
         if (state().equals(States.DEUCE)) return "Deuce";
         if (state().equals(States.SIMILAR)) return playerA.getPoints() + " All";
         return "Player A score: " + playerA.getPoints() + ", Player B score: " + playerB.getPoints();
+    }
+
+    private boolean aPlayerHasAnAdvantage() {
+        if (playerA.getPoints() > 40 && playerB.getPoints() == 40 ){
+            playerWithHigherScore().addAdvantage();
+            return true;
+        }
+        if (playerB.getPoints() > 40 && playerA.getPoints() == 40 ){
+            playerWithHigherScore().addAdvantage();
+            return true;
+        }
+        else return false;
     }
 
     private Player playerWithHigherScore() {
@@ -38,17 +49,10 @@ public class Game {
         playerB.reStartScore();
     }
 
-    private boolean playerBHasAnAdvantage() {
-        return playerB.getAdvantage() == 1;
-    }
-
-    private boolean playerAHasAnAdvantage() {
-        return playerA.getAdvantage() == 1;
-    }
-
     private boolean aPlayerWonASetPointWithoutAdvantages(){
         if(state() == States.SetPointWonWithoutAdvantage){
             playerWithHigherScore().addSetPoint();
+            reStartBothScores();
             return true;
         }
         return false;
