@@ -36,8 +36,4 @@ public class Score {
         return setPoint;
     }
 
-
-    public void restartScore() {
-        this.score = 0;
-    }
 }
