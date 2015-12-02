@@ -22,16 +22,8 @@ public class Player {
         score.addPoint();
     }
 
-    public int getAdvantage() {
-        return score.getAdvantage();
-    }
-
     public int getSetPoints() {
         return score.getSetPoints();
-    }
-
-    public void reStartScore(){
-        score.restartScore();
     }
 
     public void addSetPoint() {
@@ -40,5 +32,9 @@ public class Player {
 
     public void addAdvantage() {
         score.addAdvantage();
+    }
+
+    public int getAdvantages() {
+        return score.getAdvantage();
     }
 }
