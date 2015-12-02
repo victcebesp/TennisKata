@@ -8,21 +8,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GameShould {
 
-    Player playerA = new Player("playerA");
-    Player playerB = new Player("playerB");
+    Player playerA;
+    Player playerB;
     private Game game;
 
     @Before
     public void setUp() {
+        playerA = new Player("playerA");
+        playerB = new Player("playerB");
         game = new Game(playerA, playerB);
     }
 
     @Test public void
-    return_each_player_score() {
-        add(2).pointsToAdd(playerA);
-        add(1).pointsToAdd(playerB);
+    add_an_advantage_when_both_players_have_40_as_score_and_one_scores() {
+        add(3).pointsTo(playerA);
+        add(3).pointsTo(playerB);
+        add(1).pointsTo(playerA);
 
-        assertThat(game.printGameStatus(), is("Player A score: 30, Player B score: 15"));
+        assertThat(playerA.getAdvantages(), is(1));
     }
 
     @Test public void
