@@ -36,30 +36,23 @@ public class ScoreShould {
 
     @Test
     public void return_15_after_adding_a_point() {
-        add(1).pointsToAdd(score);
+        add(1).pointsTo(score);
 
         assertEquals(15, score.getPoints());
     }
 
     @Test
     public void return_30_after_adding_a_point_to_a_15_score() {
-        add(2).pointsToAdd(score);
+        add(2).pointsTo(score);
 
         assertEquals(30, score.getPoints());
     }
 
     @Test
     public void return_40_after_adding_a_point_to_a_30_score() {
-        add(3).pointsToAdd(score);
+        add(3).pointsTo(score);
 
         assertEquals(40, score.getPoints());
-    }
-
-    @Test public void
-    return_one_advantage_after_adding_a_point_to_a_40_score(){
-        add(4).pointsToAdd(score);
-
-        assertEquals(1, score.getAdvantage());
     }
 
     private ScoreAdder add(int points) {
@@ -74,7 +67,7 @@ public class ScoreShould {
             this.pointsToAdd = pointsToAdd;
         }
 
-        public void pointsToAdd(Score score) {
+        public void pointsTo(Score score) {
             for (int i = 0; i < pointsToAdd; i++) {
                 score.addPoint();
             }
