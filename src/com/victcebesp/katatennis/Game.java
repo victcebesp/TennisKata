@@ -12,10 +12,10 @@ public class Game {
         this.playerB = playerB;
     }
 
-    public String printGameStatus(){
+    public String returnStatus(){
+
         if (aPlayerWonASetPointWithoutAdvantages()) return playerWithHigherScore().getPlayerName() + " scored a setPoint";
         if (playerAHasASetPoint()) {
-            reStartBothScores();
             return playerA.getPlayerName() + " scored a setPoint";
         }
         if (aPlayerHasAnAdvantage()) return playerWithHigherScore().getPlayerName() + " has an advantage";
@@ -44,15 +44,9 @@ public class Game {
         return playerA.getSetPoints() == 1;
     }
 
-    private void reStartBothScores() {
-        playerA.reStartScore();
-        playerB.reStartScore();
-    }
-
     private boolean aPlayerWonASetPointWithoutAdvantages(){
         if(state() == States.SetPointWonWithoutAdvantage){
             playerWithHigherScore().addSetPoint();
-            reStartBothScores();
             return true;
         }
         return false;
@@ -66,4 +60,11 @@ public class Game {
         return States.DIFFERENT;
     }
 
+    public boolean updateGame(Player player) {
+        if (state().equals(States.DEUCE)){
+            player.addAdvantage();
+            return true;
+        }
+        return false;
+    }
 }
