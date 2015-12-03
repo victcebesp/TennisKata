@@ -37,4 +37,12 @@ public class Player {
     public int getAdvantages() {
         return score.getAdvantage();
     }
+
+    public void restartPoints() {
+        score.setPoints(0);
+    }
+
+    public void restartAdvantages() {
+        score.setAdvantages(0);
+    }
 }

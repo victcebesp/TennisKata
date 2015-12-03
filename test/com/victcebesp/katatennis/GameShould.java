@@ -34,7 +34,19 @@ public class GameShould {
         add(3).pointsTo(playerB);
         add(2).pointsTo(playerA);
 
-        assertThat(playerA.getAdvantages(), is(1));
+        assertThat(playerA.getSetPoints(), is(1));
+    }
+
+    @Test public void
+    restart_both_scores_and_advantages_when_a_setpoint_is_scored() {
+        add(3).pointsTo(playerA);
+        add(3).pointsTo(playerB);
+        add(2).pointsTo(playerA);
+
+        assertThat(playerA.getPoints(), is(0));
+        assertThat(playerA.getAdvantages(), is(0));
+        assertThat(playerB.getPoints(), is(0));
+        assertThat(playerB.getAdvantages(), is(0));
     }
 
     private ScoreAdder add(int points) {

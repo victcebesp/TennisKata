@@ -5,6 +5,7 @@ public class Score {
     private int score;
     private int advantage;
     private int setPoint;
+    private int advantages;
 
     public Score() {
         this.score = 0;
@@ -36,4 +37,11 @@ public class Score {
         return setPoint;
     }
 
+    public void setPoints(int score) {
+        this.score = score;
+    }
+
+    public void setAdvantages(int advantages) {
+        this.advantage = advantages;
+    }
 }

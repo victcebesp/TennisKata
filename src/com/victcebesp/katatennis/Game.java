@@ -61,11 +61,22 @@ public class Game {
     }
 
     public boolean updateGame(Player player) {
-        if (player.getAdvantages() == 1) player.addSetPoint();
-        else if (state().equals(States.DEUCE)){
+        if (player.getAdvantages() == 1) {
+            player.addSetPoint();
+            restartPointsAndAdvantages();
+            return true;
+        }
+        if (state().equals(States.DEUCE)){
             player.addAdvantage();
             return true;
         }
         return false;
+    }
+
+    private void restartPointsAndAdvantages() {
+        playerA.restartPoints();
+        playerA.restartAdvantages();
+        playerB.restartPoints();
+        playerB.restartAdvantages();
     }
 }
