@@ -61,7 +61,8 @@ public class Game {
     }
 
     public boolean updateGame(Player player) {
-        if (state().equals(States.DEUCE)){
+        if (player.getAdvantages() == 1) player.addSetPoint();
+        else if (state().equals(States.DEUCE)){
             player.addAdvantage();
             return true;
         }
