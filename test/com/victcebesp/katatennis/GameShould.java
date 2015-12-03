@@ -43,10 +43,11 @@ public class GameShould {
         add(3).pointsTo(playerB);
         add(2).pointsTo(playerA);
 
-        assertThat(playerA.getPoints(), is(0));
-        assertThat(playerA.getAdvantages(), is(0));
-        assertThat(playerB.getPoints(), is(0));
-        assertThat(playerB.getAdvantages(), is(0));
+        int ZERO = 0;
+        assertThat(playerA.getPoints(), is(ZERO));
+        assertThat(playerA.getAdvantages(), is(ZERO));
+        assertThat(playerB.getPoints(), is(ZERO));
+        assertThat(playerB.getAdvantages(), is(ZERO));
     }
 
     private ScoreAdder add(int points) {
