@@ -14,9 +14,17 @@ public class Game {
 
     private States state() {
         if (stateIsSetPointWonWithoutAdvantage()) return States.SetPointWonWithoutAdvantage;
-        if(playerA.getPoints() == playerB.getPoints() && playerA.getPoints() == 40) return States.DEUCE;
-        if(playerA.getPoints() == playerB.getPoints()) return States.SIMILAR;
+        if(bothPlayersHasFortyAsScore()) return States.DEUCE;
+        if(bothPlayersHasTheSameScore()) return States.SIMILAR;
         return States.DIFFERENT;
+    }
+
+    private boolean bothPlayersHasTheSameScore() {
+        return playerA.getPoints() == playerB.getPoints();
+    }
+
+    private boolean bothPlayersHasFortyAsScore() {
+        return bothPlayersHasTheSameScore() && playerA.getPoints() == 40;
     }
 
     private boolean stateIsSetPointWonWithoutAdvantage() {
