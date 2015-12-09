@@ -13,12 +13,24 @@ public class Game {
     }
 
     private States state() {
+        if (stateIsSetPointWonWithoutAdvantage()) return States.SetPointWonWithoutAdvantage;
         if(playerA.getPoints() == playerB.getPoints() && playerA.getPoints() == 40) return States.DEUCE;
         if(playerA.getPoints() == playerB.getPoints()) return States.SIMILAR;
         return States.DIFFERENT;
     }
 
+    private boolean stateIsSetPointWonWithoutAdvantage() {
+        if (playerB.getPoints() == 40 && playerA.getPoints() < 40) return true;
+        if (playerA.getPoints() == 40 && playerB.getPoints() < 40) return true;
+        return false;
+    }
+
     public boolean updateGame(Player player) {
+        if(state().equals(States.SetPointWonWithoutAdvantage)) {
+            player.addSetPoint();
+            restartPointsAndAdvantages();
+            return true;
+        }
         if (player.getAdvantages() == 1) {
             player.addSetPoint();
             restartPointsAndAdvantages();

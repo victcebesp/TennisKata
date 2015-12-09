@@ -38,6 +38,13 @@ public class GameShould {
     }
 
     @Test public void
+    add_a_setpoint_when_a_player_has_40_and_scores_and_the_other_has_less_than_40() {
+        add(4).pointsTo(playerA);
+        add(1).pointsTo(playerB);
+        assertThat(playerA.getSetPoints(), is(1));
+    }
+
+    @Test public void
     restart_both_scores_and_advantages_when_a_setpoint_is_scored() {
         add(3).pointsTo(playerA);
         add(3).pointsTo(playerB);
