@@ -12,27 +12,6 @@ public class Game {
         this.playerB = playerB;
     }
 
-    private States state() {
-        if (stateIsSetPointWonWithoutAdvantage()) return States.SetPointWonWithoutAdvantage;
-        if(bothPlayersHasFortyAsScore()) return States.DEUCE;
-        if(bothPlayersHasTheSameScore()) return States.SIMILAR;
-        return States.DIFFERENT;
-    }
-
-    private boolean bothPlayersHasTheSameScore() {
-        return playerA.getPoints() == playerB.getPoints();
-    }
-
-    private boolean bothPlayersHasFortyAsScore() {
-        return bothPlayersHasTheSameScore() && playerA.getPoints() == 40;
-    }
-
-    private boolean stateIsSetPointWonWithoutAdvantage() {
-        if (playerB.getPoints() == 40 && playerA.getPoints() < 40) return true;
-        if (playerA.getPoints() == 40 && playerB.getPoints() < 40) return true;
-        return false;
-    }
-
     public boolean updateGame(Player player) {
         if(state().equals(States.SetPointWonWithoutAdvantage)) {
             player.addSetPoint();
@@ -49,6 +28,27 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    private States state() {
+        if (stateIsSetPointWonWithoutAdvantage()) return States.SetPointWonWithoutAdvantage;
+        if(bothPlayersHasFortyAsScore()) return States.DEUCE;
+        if(bothPlayersHasTheSameScore()) return States.SIMILAR;
+        return States.DIFFERENT;
+    }
+
+    private boolean bothPlayersHasFortyAsScore() {
+        return bothPlayersHasTheSameScore() && playerA.getPoints() == 40;
+    }
+
+    private boolean stateIsSetPointWonWithoutAdvantage() {
+        if (playerB.getPoints() == 40 && playerA.getPoints() < 40) return true;
+        if (playerA.getPoints() == 40 && playerB.getPoints() < 40) return true;
+        return false;
+    }
+
+    private boolean bothPlayersHasTheSameScore() {
+        return playerA.getPoints() == playerB.getPoints();
     }
 
     private void restartPointsAndAdvantages() {
