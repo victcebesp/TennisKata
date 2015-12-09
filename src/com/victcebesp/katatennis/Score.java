@@ -5,7 +5,6 @@ public class Score {
     private int score;
     private int advantage;
     private int setPoint;
-    private int advantages;
 
     public Score() {
         this.score = 0;
@@ -27,7 +26,6 @@ public class Score {
     public int getAdvantage() {
         return advantage;
     }
-
 
     public void addSetPoint() {
         setPoint++;
