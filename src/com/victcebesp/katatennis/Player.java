@@ -2,16 +2,10 @@ package com.victcebesp.katatennis;
 
 public class Player {
 
-    private String playerName;
     protected Score score;
 
-    public Player(String playerName) {
-        this.playerName = playerName;
+    public Player() {
         this.score = new Score();
-    }
-
-    public String getPlayerName() {
-        return playerName;
     }
 
     public int getPoints() {

@@ -14,8 +14,6 @@ public class GameShould {
 
     @Before
     public void setUp() {
-        playerA = new Player("playerA");
-        playerB = new Player("playerB");
         game = new Game(playerA, playerB);
     }
 
